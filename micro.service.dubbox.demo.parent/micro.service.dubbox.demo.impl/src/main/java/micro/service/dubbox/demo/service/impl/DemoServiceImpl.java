@@ -8,7 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-@Service
+@Service(group = "demo", version = "1.0.0")
 public class DemoServiceImpl implements DemoService {
 
     @GET

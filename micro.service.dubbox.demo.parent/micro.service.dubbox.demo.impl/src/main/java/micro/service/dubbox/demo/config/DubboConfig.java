@@ -60,11 +60,31 @@ public class DubboConfig {
         protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
         return protocolConfig;
     }
-
     @Bean
     public ProtocolConfig protocolConfig2() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("dubbo");
+        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9091);
+        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+        return protocolConfig;
+    }    @Bean
+    public ProtocolConfig protocolConfig3() {
+        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9092);
+        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+        return protocolConfig;
+    }    @Bean
+    public ProtocolConfig protocolConfig4() {
+        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9093);
+        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+        return protocolConfig;
+    }    @Bean
+    public ProtocolConfig protocolConfig5() {
+        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9094);
         protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
         return protocolConfig;
     }
+//    @Bean
+//    public ProtocolConfig protocolConfig2() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("dubbo");
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
 }
