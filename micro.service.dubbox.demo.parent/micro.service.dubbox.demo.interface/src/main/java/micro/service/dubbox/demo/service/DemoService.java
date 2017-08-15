@@ -9,6 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+
 @Path("user")
 @Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
 public interface DemoService {
