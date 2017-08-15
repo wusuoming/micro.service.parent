@@ -8,7 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-@Service(group = "demo", version = "1.0.0")
+@Service(group = "demo", version = "1.0.0", filter = {"authorityFilter", "corsFilter"})
 public class DemoServiceImpl implements DemoService {
 
     @GET

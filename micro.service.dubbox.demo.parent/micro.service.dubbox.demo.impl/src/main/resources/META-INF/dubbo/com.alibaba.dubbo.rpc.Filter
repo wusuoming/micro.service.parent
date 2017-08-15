@@ -1,0 +1,2 @@
+authorityFilter=micro.service.dubbox.demo.filter.AuthorityFilter
+corsFilter=micro.service.dubbox.demo.filter.CorsFilter

@@ -4,6 +4,8 @@ import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.spring.AnnotationBean;
+import micro.service.dubbox.demo.service.IpWhiteList;
+import micro.service.dubbox.demo.service.impl.IpWhiteListImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -58,33 +60,48 @@ public class DubboConfig {
     public ProtocolConfig protocolConfig() {
         ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9090);
         protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+        protocolConfig.setExtension("com.alibaba.dubbo.rpc.protocol.rest.support.LoggingFilter,micro.service.dubbox.demo.config.MyExceptionHandler");
         return protocolConfig;
     }
-    @Bean
-    public ProtocolConfig protocolConfig2() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9091);
-        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        return protocolConfig;
-    }    @Bean
-    public ProtocolConfig protocolConfig3() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9092);
-        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        return protocolConfig;
-    }    @Bean
-    public ProtocolConfig protocolConfig4() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9093);
-        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        return protocolConfig;
-    }    @Bean
-    public ProtocolConfig protocolConfig5() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9094);
-        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        return protocolConfig;
-    }
+
+//    @Bean
+//    public ProtocolConfig protocolConfig2() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9091);
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
+//
+//    @Bean
+//    public ProtocolConfig protocolConfig3() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9092);
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
+//
+//    @Bean
+//    public ProtocolConfig protocolConfig4() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9093);
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
+//
+//    @Bean
+//    public ProtocolConfig protocolConfig5() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9094);
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
 //    @Bean
 //    public ProtocolConfig protocolConfig2() {
 //        ProtocolConfig protocolConfig = new ProtocolConfig("dubbo");
 //        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
 //        return protocolConfig;
 //    }
+
+
+    @Bean
+    public IpWhiteList ipWhiteList() {
+        return new IpWhiteListImpl();
+    }
+
 }
