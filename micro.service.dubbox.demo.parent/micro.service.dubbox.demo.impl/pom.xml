@@ -62,12 +62,16 @@
             <artifactId>jetty-util</artifactId>
             <version>7.0.0.pre5</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-webmvc</artifactId>-->
+            <!--<version>4.3.7.RELEASE</version>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>4.3.7.RELEASE</version>
+            <groupId>basic</groupId>
+            <artifactId>basic.common.swagger</artifactId>
+            <version>1.0.4-RELEASE</version>
         </dependency>
-
     </dependencies>
 
 </project>
