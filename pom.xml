@@ -5,10 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.appc</groupId>
-    <artifactId>micro.service</artifactId>
+    <artifactId>micro.service.parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>micro.service.dubbox.demo.parent</module>
         <module>micro.service.dubbox.demo.parent</module>
     </modules>
     <packaging>pom</packaging>
