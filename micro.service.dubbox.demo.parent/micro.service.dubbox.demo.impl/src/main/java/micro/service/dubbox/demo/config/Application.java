@@ -2,18 +2,13 @@ package micro.service.dubbox.demo.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.io.IOException;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class Application {
+public class Application  extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
+
 }
