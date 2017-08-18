@@ -14,6 +14,6 @@ public class IpWhiteListImpl implements IpWhiteList {
 
     @Override
     public List<String> getAllowedIps() {
-        return Arrays.asList( "127.0.0.1","192.168.100.225");
+        return Arrays.asList("127.0.0.1", "192.168.100.225", "0:0:0:0:0:0:0:1");
     }
 }
