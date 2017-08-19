@@ -4,15 +4,14 @@ import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.spring.AnnotationBean;
+import io.swagger.jaxrs.config.BeanConfig;
 import micro.service.dubbox.demo.service.IpWhiteList;
 import micro.service.dubbox.demo.service.impl.IpWhiteListImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2
 @Configuration
 @PropertySource("classpath:dubbo.properties")
 public class DubboConfig {
@@ -41,7 +40,7 @@ public class DubboConfig {
     @Bean
     public static AnnotationBean annotationBean() {
         AnnotationBean annotationBean = new AnnotationBean();
-        annotationBean.setPackage("micro.service.dubbox.demo.service.impl");//多个包可使用英文逗号隔开
+        annotationBean.setPackage("micro.service.dubbox.demo.service.impl,com.alibaba.dubbo.integration.swagger");//多个包可使用英文逗号隔开
         return annotationBean;
     }
 
@@ -65,40 +64,55 @@ public class DubboConfig {
         protocolConfig.setExtension("com.alibaba.dubbo.rpc.protocol.rest.support.LoggingFilter,micro.service.dubbox.demo.config.MyExceptionHandler");
         return protocolConfig;
     }
-
-    @Bean
-    public ProtocolConfig protocolConfig2() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9091);
-        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        return protocolConfig;
-    }
-
-    @Bean
-    public ProtocolConfig protocolConfig3() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9092);
-        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        return protocolConfig;
-    }
-
-    @Bean
-    public ProtocolConfig protocolConfig4() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9093);
-        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        return protocolConfig;
-    }
-
-    @Bean
-    public ProtocolConfig protocolConfig5() {
-        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9094);
-        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        return protocolConfig;
-    }
+//
+//    @Bean
+//    public ProtocolConfig protocolConfig2() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9091);
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
+//
+//    @Bean
+//    public ProtocolConfig protocolConfig3() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9092);
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
+//
+//    @Bean
+//    public ProtocolConfig protocolConfig4() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9093);
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
+//
+//    @Bean
+//    public ProtocolConfig protocolConfig5() {
+//        ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9094);
+//        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
+//        return protocolConfig;
+//    }
 //    @Bean
 //    public ProtocolConfig protocolConfig2() {
 //        ProtocolConfig protocolConfig = new ProtocolConfig("dubbo");
 //        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
 //        return protocolConfig;
 //    }
+
+    @Bean
+    public BeanConfig beanConfig() {
+        BeanConfig config = new BeanConfig();
+        config.setConfigId("springboot ");
+        config.setTitle("Spring Boot");
+        config.setVersion("1.0.1");
+        config.setContact("wzh");
+        config.setSchemes(new String[]{"http", "https"});
+        config.setBasePath("/");
+        config.setResourcePackage("micro.service.dubbox.demo.service.impl");
+        config.setPrettyPrint(true);
+        config.setScan(true);
+        return config;
+    }
 
 
     @Bean
