@@ -9,7 +9,7 @@ import javax.validation.ConstraintViolationException;
 import javax.ws.rs.core.Response;
 
 
-public class MyExceptionHandler extends RpcExceptionMapper {
+public class ExceptionHandler extends RpcExceptionMapper {
 
     public Response toResponse(RpcException e) {
         if (e.getCause() instanceof ConstraintViolationException) {

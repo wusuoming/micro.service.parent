@@ -61,7 +61,7 @@ public class DubboConfig {
     public ProtocolConfig protocolConfig() {
         ProtocolConfig protocolConfig = new ProtocolConfig("rest", 9090);
         protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
-        protocolConfig.setExtension("com.alibaba.dubbo.rpc.protocol.rest.support.LoggingFilter,micro.service.dubbox.demo.config.MyExceptionHandler");
+        protocolConfig.setExtension("micro.service.dubbox.demo.config.ExceptionHandler");
         return protocolConfig;
     }
 //
@@ -100,20 +100,21 @@ public class DubboConfig {
 //    }
 
     @Bean
-    public BeanConfig beanConfig() {
-        BeanConfig config = new BeanConfig();
-        config.setConfigId("springboot ");
-        config.setTitle("Spring Boot");
-        config.setVersion("1.0.1");
-        config.setContact("wzh");
-        config.setSchemes(new String[]{"http", "https"});
-        config.setBasePath("/");
-        config.setResourcePackage("micro.service.dubbox.demo.service.impl");
-        config.setPrettyPrint(true);
-        config.setScan(true);
-        return config;
+    BeanConfig beanConfig() {
+        BeanConfig beanConfig = new BeanConfig();
+        beanConfig.setDescription("hello");
+        beanConfig.setSchemes(new String[]{"http"});
+        beanConfig.setContact("wusm");
+        beanConfig.setLicense("Apache 2.0");
+        beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
+        beanConfig.setVersion("1.0.0");
+        beanConfig.setSchemes(new String[]{"http"});
+        beanConfig.setBasePath("/");
+        beanConfig.setTitle("这个是标题啊");
+        beanConfig.setResourcePackage("micro.service.dubbox.demo.service");
+        beanConfig.setScan(true);
+        return beanConfig;
     }
-
 
     @Bean
     public IpWhiteList ipWhiteList() {

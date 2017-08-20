@@ -4685,6 +4685,7 @@ Resolver.prototype.resolve = function (spec, arg1, arg2, arg3) {
         }
         else {
           operation = path[method];
+          if(!operation) continue;
           var sharedParameters = path.parameters || [];
           var parameters = operation.parameters || [];
 
