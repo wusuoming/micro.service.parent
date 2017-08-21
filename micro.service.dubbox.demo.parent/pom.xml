@@ -12,6 +12,8 @@
     <modules>
         <module>micro.service.dubbox.demo.interface</module>
         <module>micro.service.dubbox.demo.impl</module>
+        <module>dubbo-integration-swagger</module>
+        <module>micro.service.dubbox.demo.impl2</module>
     </modules>
     <artifactId>micro.service.dubbox.demo.parent</artifactId>
     <build>
