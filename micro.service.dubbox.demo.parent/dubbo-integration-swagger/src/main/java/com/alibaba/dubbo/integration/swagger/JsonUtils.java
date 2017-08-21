@@ -1,14 +1,11 @@
 package com.alibaba.dubbo.integration.swagger;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -122,17 +119,6 @@ public class JsonUtils {
         return mapper.getTypeFactory().constructParametricType(collectionClass, elementClasses);
     }
 
-    public <T> T xmlToBean(String xmlPath, Class<T> cls) throws IOException {
-        XmlMapper xml = new XmlMapper();
-        T obj = xml.readValue(new File(xmlPath), cls);
-        return obj;
-    }
-
-    public <T> String beanToXml(T bean) throws JsonProcessingException {
-        XmlMapper xml = new XmlMapper();
-        String string = xml.writeValueAsString(bean);
-        return string;
-    }
 
     /**
      * 获取map中第一个数据值

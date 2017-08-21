@@ -5,37 +5,37 @@ import java.io.Serializable;
 
 public class BaseException implements Serializable {
 
-    private int error;
+    private int code;
 
-    private String error_discription;
+    private String message;
 
     public BaseException() {
 
     }
 
-    public BaseException(Integer error, String error_discription) {
-        this.error = error;
-        this.error_discription = error_discription;
+    public BaseException(Integer code, String message) {
+        this.code = code;
+        this.message = message;
     }
 
 
-    public static BaseException create(Integer error, String error_discription) {
-        return new BaseException(error, error_discription);
+    public static BaseException create(Integer code, String message) {
+        return new BaseException(code, message);
     }
 
-    public int getError() {
-        return error;
+    public int getCode() {
+        return code;
     }
 
-    public void setError(int error) {
-        this.error = error;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getError_discription() {
-        return error_discription;
+    public String getMessage() {
+        return message;
     }
 
-    public void setError_discription(String error_discription) {
-        this.error_discription = error_discription;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
