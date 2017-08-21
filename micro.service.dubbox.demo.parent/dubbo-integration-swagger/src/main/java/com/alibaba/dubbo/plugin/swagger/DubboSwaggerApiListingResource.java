@@ -14,8 +14,7 @@ import java.util.Date;
 
 @Service
 public class DubboSwaggerApiListingResource extends BaseApiListingResource implements DubboSwaggerService {
-
-
+    
     @Override
     public Response getListingJson() {
         Response response = getListingJsonResponse(null, null, null, null, null);

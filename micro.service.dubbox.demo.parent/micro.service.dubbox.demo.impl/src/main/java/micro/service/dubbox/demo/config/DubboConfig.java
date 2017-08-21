@@ -4,13 +4,14 @@ import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.spring.AnnotationBean;
-import io.swagger.jaxrs.config.BeanConfig;
 import micro.service.dubbox.demo.service.IpWhiteList;
 import micro.service.dubbox.demo.service.impl.IpWhiteListImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+
+import static micro.service.dubbox.demo.common.Constants.SCAN_PACKAGE;
 
 @Configuration
 @PropertySource("classpath:dubbo.properties")
@@ -40,7 +41,7 @@ public class DubboConfig {
     @Bean
     public static AnnotationBean annotationBean() {
         AnnotationBean annotationBean = new AnnotationBean();
-        annotationBean.setPackage("micro.service.dubbox.demo.service.impl,com.alibaba.dubbo.integration.swagger");//多个包可使用英文逗号隔开
+        annotationBean.setPackage(SCAN_PACKAGE);//多个包可使用英文逗号隔开
         return annotationBean;
     }
 
@@ -98,7 +99,6 @@ public class DubboConfig {
 //        protocolConfig.setSerialization("kryo");//默认为hessian2,但不支持无参构造函数类,而这种方式的效率很低
 //        return protocolConfig;
 //    }
-
 
 
     @Bean
