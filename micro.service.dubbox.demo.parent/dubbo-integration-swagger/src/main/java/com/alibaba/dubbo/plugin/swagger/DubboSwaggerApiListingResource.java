@@ -1,4 +1,4 @@
-package com.alibaba.dubbo.integration.swagger;
+package com.alibaba.dubbo.plugin.swagger;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.dubbo.rpc.RpcContext;
@@ -19,11 +19,12 @@ public class DubboSwaggerApiListingResource extends BaseApiListingResource imple
     @Override
     public Response getListingJson() {
         Response response = getListingJsonResponse(null, null, null, null, null);
+
+        response = Response.ok(DubboSwaggerUtils.EXCLUDE_EMPTY.toJson(response.getEntity()), MediaType.APPLICATION_JSON_TYPE).build();
         response.getHeaders().add("Access-Control-Allow-Origin", "*");
         response.getHeaders().add("Access-Control-Allow-Headers", "x-requested-with, ssi-token");
         response.getHeaders().add("Access-Control-Max-Age", "3600");
         response.getHeaders().add("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-        response = Response.ok(JsonUtils.EXCLUDE_EMPTY.toJson(response.getEntity()), MediaType.APPLICATION_JSON_TYPE).build();
         return response;
     }
 

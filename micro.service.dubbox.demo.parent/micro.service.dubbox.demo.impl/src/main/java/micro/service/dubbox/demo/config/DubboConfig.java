@@ -99,22 +99,7 @@ public class DubboConfig {
 //        return protocolConfig;
 //    }
 
-    @Bean
-    BeanConfig beanConfig() {
-        BeanConfig beanConfig = new BeanConfig();
-        beanConfig.setDescription("hello");
-        beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setContact("wusm");
-        beanConfig.setLicense("Apache 2.0");
-        beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
-        beanConfig.setVersion("1.0.0");
-        beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setBasePath("/");
-        beanConfig.setTitle("这个是标题啊");
-        beanConfig.setResourcePackage("micro.service.dubbox.demo.service");
-        beanConfig.setScan(true);
-        return beanConfig;
-    }
+
 
     @Bean
     public IpWhiteList ipWhiteList() {

@@ -99,5 +99,35 @@
             <version>2.4</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <!-- main方法运行需要 -->
+            <!-- 加入热部署插件, spring-boot:run可用 -->
+            <!-- java可用, 需要下载jar包放在lib下, 然后修改vm参数 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <dependencies>
+                    <!--springloaded hot deploy -->
+                    <dependency>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>springloaded</artifactId>
+                        <version>1.2.6.RELEASE</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>

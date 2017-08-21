@@ -1,4 +1,4 @@
-package com.alibaba.dubbo.integration.swagger;
+package com.alibaba.dubbo.plugin.swagger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
